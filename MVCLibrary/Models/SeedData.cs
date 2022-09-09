@@ -11,15 +11,17 @@ namespace MVCLibrary.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<LibraryContext>>()))
             {
-                if(context.Book.Any())
+                if (context.Book.Any())
                 {
-                    return;
+                    context.Book.AddRange(
+                     new Book { Title = "Tiny C# Projects", Author = "Petrov", CallNumber = "AXD 2029" },
+                     new Book { Title = "Tiny Android Projects", Author = "Petrov", CallNumber = "AKQ 2229" }
+                     );
+                    context.SaveChanges();
                 }
-                context.Book.AddRange(
-                    new Book { Title = "Tiny C# Projects", CallNumber = "AXD 2029" },
-                    new Book { Title = "Tiny Android Projects", CallNumber = "AKQ 2229" }
-                    );
-                context.SaveChanges();
+
+               
+
             }
         }
     }

@@ -26,7 +26,7 @@ using (var scope = app.Services.CreateScope())
     SeedData.Initialize(services);
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); 
 app.UseStaticFiles();
 
 app.UseRouting();
